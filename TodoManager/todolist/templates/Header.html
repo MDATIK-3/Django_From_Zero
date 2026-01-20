@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="m-0 font-sans bg-gray-100 text-gray-900">
+
+<header class="flex justify-between items-center px-6 py-4 bg-gray-900 text-white">
+  <a href="{% url 'home' %}" class="flex items-center space-x-3 hover:opacity-90 transition duration-200">
+    <img src="{% static 'image/logo.png' %}" alt="Logo" class="w-12 h-12 rounded-full shadow-md border-2 border-gray-200">
+    <span class="text-white font-bold text-2xl tracking-wide drop-shadow-md">
+        MyWebsite
+    </span>
+</a>
+
+
+    <nav class="space-x-6">
+        <a href="{% url 'home' %}" class="hover:text-gray-300">Home</a>
+        <a href="{% url 'about' %}" class="hover:text-gray-300">About Us</a>
+        <a href="{% url 'tasklist' %}" class="hover:text-gray-300">TaskList</a>
+        <a href="#" class="hover:text-gray-300">Login</a>
+    </nav>
+</header>
+
+<main class="p-6">
+    {% block content %}{% endblock content %}
+</main>
+
+</body>
+</html>
