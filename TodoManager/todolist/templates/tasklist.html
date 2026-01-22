@@ -1,3 +1,25 @@
 {% extends "Header.html" %}
 
-{% block title %}TaskList{% endblock title %}
+{% block title %}
+TaskList
+{% endblock title %}
+
+{% block content %}
+<h1 class="text-3xl font-bold mb-6">Task List</h1>
+<!-- <span>{{all_tasks}}</span> -->
+<ul class="space-y-4">
+    {% for task in all_tasks %}
+    <li class="bg-gray-800 p-4 rounded-lg shadow-md flex justify-between items-center">
+        <span class="text-lg ">{{ task.title}}</span>
+        <span>{{task.completed}}</span>
+        <form>
+            {% csrf_token %}
+            <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition duration-200"
+                type="submit">Delete</button>
+        </form>
+    </li>
+    {% empty %}
+    <li class="text-gray-400">No tasks available. Please add some tasks!</li>
+    {% endfor %}
+</ul>
+{% endblock %}

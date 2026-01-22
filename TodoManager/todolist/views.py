@@ -1,5 +1,6 @@
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render
+from todolist.models import Todo
 import datetime
 
 def home(request):
@@ -14,7 +15,12 @@ def about(request):
     return render(request, 'about.html',{})
 
 def tasklist(request):
-    return render(request, 'tasklist.html',{})
+    all_tasks = Todo.objects.all()
+    context = {
+        'page': 'TaskList',
+        'all_tasks': all_tasks
+    }
+    return render(request, 'tasklist.html', context)
 
 
 def special_case_2003(request):
