@@ -6,6 +6,9 @@ urlpatterns = [
     path("", views.home, name="home"),
     path("about/", views.about, name= 'about'),
     path("tasklist/", views.tasklist, name='tasklist'),
+    path("client/", views.Client_info, name='client_info'),
+    path("toggle/<int:id>/", views.toggle_todo, name="toggle_todo"),
+
 
 
     

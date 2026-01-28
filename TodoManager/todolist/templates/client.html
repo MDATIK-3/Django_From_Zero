@@ -1,0 +1,26 @@
+{% extends "Header.html" %}
+
+{% block title %}
+Client Details
+{% endblock title %}
+
+{% block content %}
+<h1>Client Details</h1>
+
+{% if data %}
+  <ul>
+    {% for client in data %}
+      <li>
+        <strong>{{ client.first_name }} {{ client.last_name }}</strong>
+        <p>Email: {{ client.email }}</p>
+        <p>Phone: {{ client.phone_number }}</p>
+        <p>Address: {{ client.address }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No clients yet.</p>
+{% endif %}
+
+
+{% endblock %}
